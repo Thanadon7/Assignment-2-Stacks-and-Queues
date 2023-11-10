@@ -1,0 +1,23 @@
+import unittest
+from bracket_check import bracket_check
+
+def test_no_error(self):
+    test_string = '[{(Hello)}]'
+    isError, location = bracket_check(test_string)
+    self.assertEqual(isError, False)
+    self.assertEqual(location, [])  
+
+def test_error_1(self):
+    test_string = '[{(Hello})]'
+    isError, location = bracket_check(test_string)
+    self.assertEqual(isError, True)
+    self.assertEqual(location, [6])
+
+def test_error_4(self):
+        test_string = '{}{'
+        isError, location = bracket_check(test_string)
+        self.assertEqual(isError, True)
+        self.assertEqual(location, [2])
+
+if __name__ == '__main__':
+    unittest.main()
